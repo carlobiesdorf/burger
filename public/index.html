@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einbürgerungstest – Bayern</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Einbürgerungstest <span class="land">Bayern</span></h1>
+        <nav id="mode-switch">
+            <button id="btn-mode-study" class="active">Lernmodus</button>
+            <button id="btn-mode-exam">Prüfungsmodus</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="screen-home">
+            <div class="card">
+                <h2>Willkommen!</h2>
+                <p class="subtitle">Übung für den deutschen Einbürgerungstest – Bundesland Bayern.</p>
+
+                <div class="modes">
+                    <div class="mode-card" data-mode="study">
+                        <h3>Lernmodus</h3>
+                        <p>Alle 310 Fragen frei durchblättern. Klicke auf ein Wort, um die portugiesische Übersetzung anzuzeigen. Übersetzung der ganzen Frage verfügbar.</p>
+                        <button class="btn-primary" id="start-study">Starten</button>
+                    </div>
+                    <div class="mode-card" data-mode="exam">
+                        <h3>Prüfungsmodus</h3>
+                        <p>Echte Prüfungssimulation: 33 zufällige Fragen (30 allgemein + 3 Bayern), 60 Minuten Zeit, nur auf Deutsch. Bestanden ab 17 richtigen Antworten.</p>
+                        <button class="btn-primary" id="start-exam">Prüfung starten</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="screen-quiz" class="hidden">
+            <div class="quiz-toolbar">
+                <div class="left">
+                    <button id="btn-back">← Zurück</button>
+                    <span id="progress">Frage 1 / 33</span>
+                </div>
+                <div class="right">
+                    <span id="timer" class="hidden">⏱ 60:00</span>
+                    <button id="btn-translate" class="hidden">Frage übersetzen</button>
+                </div>
+            </div>
+
+            <div class="quiz-layout">
+                <div class="quiz-main">
+                    <div class="card question-card">
+                        <div class="question-number" id="q-num">Frage 1</div>
+                        <div class="question-text" id="q-text"></div>
+                        <div class="question-translation hidden" id="q-translation"></div>
+                        <ul class="options" id="q-options"></ul>
+                        <div class="feedback hidden" id="q-feedback"></div>
+                    </div>
+
+                    <div class="quiz-nav">
+                        <button id="btn-prev">← Vorherige</button>
+                        <button id="btn-next" class="btn-primary">Nächste →</button>
+                        <button id="btn-finish" class="btn-primary hidden">Prüfung abgeben</button>
+                    </div>
+                </div>
+
+                <aside id="glossary-panel" class="glossary">
+                    <h3>📖 Wortschatz</h3>
+                    <p class="hint">Klicke auf ein Wort, um es hier zu speichern.</p>
+                    <ul id="glossary-list"></ul>
+                    <button id="btn-clear-glossary" class="btn-secondary hidden">Liste leeren</button>
+                </aside>
+            </div>
+        </section>
+
+        <section id="screen-result" class="hidden">
+            <div class="card result-card">
+                <h2>Ergebnis</h2>
+                <div class="score-display">
+                    <div class="score-number"><span id="score-correct">0</span> / <span id="score-total">33</span></div>
+                    <div id="score-status" class="score-status"></div>
+                </div>
+                <div class="result-actions">
+                    <button id="btn-review" class="btn-secondary">Antworten überprüfen</button>
+                    <button id="btn-restart" class="btn-primary">Neue Prüfung</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="tooltip" class="tooltip hidden"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
