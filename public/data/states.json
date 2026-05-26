@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "version": 1,
+    "default": "BY",
+    "available_questions": ["BY"]
+  },
+  "states": [
+    {"code": "SH", "name": {"de": "Schleswig-Holstein", "pt": "Schleswig-Holstein", "en": "Schleswig-Holstein", "tr": "Schleswig-Holstein", "ar": "شليسفيغ هولشتاين", "fa": "شلسویگ-هولشتاین", "es": "Schleswig-Holstein", "uk": "Шлезвіг-Гольштейн"}, "capital": "Kiel"},
+    {"code": "HH", "name": {"de": "Hamburg", "pt": "Hamburgo", "en": "Hamburg", "tr": "Hamburg", "ar": "هامبورغ", "fa": "هامبورگ", "es": "Hamburgo", "uk": "Гамбург"}, "capital": "Hamburg"},
+    {"code": "NI", "name": {"de": "Niedersachsen", "pt": "Baixa Saxônia", "en": "Lower Saxony", "tr": "Aşağı Saksonya", "ar": "ساكسونيا السفلى", "fa": "زاکسن سفلی", "es": "Baja Sajonia", "uk": "Нижня Саксонія"}, "capital": "Hannover"},
+    {"code": "HB", "name": {"de": "Bremen", "pt": "Bremen", "en": "Bremen", "tr": "Bremen", "ar": "بريمن", "fa": "برمن", "es": "Bremen", "uk": "Бремен"}, "capital": "Bremen"},
+    {"code": "MV", "name": {"de": "Mecklenburg-Vorpommern", "pt": "Mecklemburgo-Pomerânia", "en": "Mecklenburg-W. Pomerania", "tr": "Mecklenburg-Vorpommern", "ar": "مكلنبورغ-فوربومرن", "fa": "مکلنبورگ-فورپومرن", "es": "Mecklemburgo-Pomerania", "uk": "Мекленбург-Передня Померанія"}, "capital": "Schwerin"},
+    {"code": "BB", "name": {"de": "Brandenburg", "pt": "Brandemburgo", "en": "Brandenburg", "tr": "Brandenburg", "ar": "براندنبورغ", "fa": "براندنبورگ", "es": "Brandemburgo", "uk": "Бранденбург"}, "capital": "Potsdam"},
+    {"code": "BE", "name": {"de": "Berlin", "pt": "Berlim", "en": "Berlin", "tr": "Berlin", "ar": "برلين", "fa": "برلین", "es": "Berlín", "uk": "Берлін"}, "capital": "Berlin"},
+    {"code": "ST", "name": {"de": "Sachsen-Anhalt", "pt": "Saxônia-Anhalt", "en": "Saxony-Anhalt", "tr": "Saksonya-Anhalt", "ar": "ساكسونيا-أنهالت", "fa": "زاکسن-آنهالت", "es": "Sajonia-Anhalt", "uk": "Саксонія-Ангальт"}, "capital": "Magdeburg"},
+    {"code": "NW", "name": {"de": "Nordrhein-Westfalen", "pt": "Renânia do N.-Vestfália", "en": "North Rhine-Westphalia", "tr": "Kuzey Ren-Vestfalya", "ar": "شمال الراين-وستفاليا", "fa": "نوردراین-وستفالن", "es": "Renania N.-Westfalia", "uk": "Північний Рейн-Вестфалія"}, "capital": "Düsseldorf"},
+    {"code": "HE", "name": {"de": "Hessen", "pt": "Hesse", "en": "Hesse", "tr": "Hessen", "ar": "هسن", "fa": "هسن", "es": "Hesse", "uk": "Гессен"}, "capital": "Wiesbaden"},
+    {"code": "TH", "name": {"de": "Thüringen", "pt": "Turíngia", "en": "Thuringia", "tr": "Thüringen", "ar": "تورينغن", "fa": "تورینگن", "es": "Turingia", "uk": "Тюрингія"}, "capital": "Erfurt"},
+    {"code": "SN", "name": {"de": "Sachsen", "pt": "Saxônia", "en": "Saxony", "tr": "Saksonya", "ar": "ساكسونيا", "fa": "زاکسن", "es": "Sajonia", "uk": "Саксонія"}, "capital": "Dresden"},
+    {"code": "RP", "name": {"de": "Rheinland-Pfalz", "pt": "Renânia-Palatinado", "en": "Rhineland-Palatinate", "tr": "Rheinland-Pfalz", "ar": "راينلاند-بفالتس", "fa": "راینلاند-فالتس", "es": "Renania-Palatinado", "uk": "Рейнланд-Пфальц"}, "capital": "Mainz"},
+    {"code": "SL", "name": {"de": "Saarland", "pt": "Sarre", "en": "Saarland", "tr": "Saarland", "ar": "سارلاند", "fa": "زارلند", "es": "Sarre", "uk": "Саарланд"}, "capital": "Saarbrücken"},
+    {"code": "BW", "name": {"de": "Baden-Württemberg", "pt": "Baden-Württemberg", "en": "Baden-Württemberg", "tr": "Baden-Württemberg", "ar": "بادن-فورتمبرغ", "fa": "بادن-وورتمبرگ", "es": "Baden-Wurtemberg", "uk": "Баден-Вюртемберг"}, "capital": "Stuttgart"},
+    {"code": "BY", "name": {"de": "Bayern", "pt": "Baviera", "en": "Bavaria", "tr": "Bavyera", "ar": "بافاريا", "fa": "بایرن", "es": "Baviera", "uk": "Баварія"}, "capital": "München"}
+  ]
+}

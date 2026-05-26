@@ -1,3 +1,6 @@
 .DS_Store
 *.log
 node_modules/
+
+# Local snapshot history (managed manually, not in git)
+backups/

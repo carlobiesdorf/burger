@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,50 +8,125 @@
 </head>
 <body>
     <header>
-        <h1>Einbürgerungstest <span class="land">Bayern</span></h1>
+        <h1>Einbürgerungstest <button id="einb-land-selector" class="einb-land-selector" type="button" data-i18n-attr="aria-label,header.choose_state"><span class="einb-land-name" id="einb-land-name">Bayern</span> <span class="einb-land-arrow" aria-hidden="true">▾</span></button></h1>
+        <div id="einb-land-dropdown" class="einb-land-dropdown hidden" role="listbox" aria-labelledby="einb-land-selector"></div>
         <nav id="mode-switch">
-            <button id="btn-mode-study" class="active">Lernmodus</button>
-            <button id="btn-mode-exam">Prüfungsmodus</button>
+            <button id="btn-home" class="btn-home" data-i18n="header.home" data-i18n-attr="title,header.home;aria-label,header.home">🏠 Home</button>
+            <div id="einb-lang-grid" class="einb-lang-grid" role="group" aria-label="Sprache"></div>
+            <button id="btn-mode-study" class="active" data-i18n="modes.study">Lernmodus</button>
+            <button id="btn-mode-exam" data-i18n="modes.exam">Prüfungsmodus</button>
+            <span id="einb-trial-slot" class="einb-header-slot"></span>
+            <span id="einb-auth-slot" class="einb-header-slot"></span>
+            <button id="btn-tour" class="einb-account-btn" data-i18n-attr="title,header.tour_again;aria-label,header.tour"><span class="einb-btn-icon">❓</span><span class="einb-btn-label" data-i18n="header.tour">Tour</span></button>
         </nav>
     </header>
 
     <main>
-        <section id="screen-home">
-            <div class="card">
-                <h2>Willkommen!</h2>
-                <p class="subtitle">Übung für den deutschen Einbürgerungstest – Bundesland Bayern.</p>
+        <section id="screen-welcome" class="hidden">
+            <div class="welcome-card">
+                <h2 data-i18n="welcome.title">Willkommen!</h2>
+                <p class="welcome-lead" data-i18n="welcome.lead">
+                    Einbürgerungstest – die offizielle Prüfung zur Erlangung der deutschen Staatsbürgerschaft.
+                </p>
+                <div class="welcome-about">
+                    <h3 data-i18n="welcome.about_title">Über die Prüfung</h3>
+                    <p data-i18n="welcome.about_body">Der Einbürgerungstest ist die offizielle Prüfung der deutschen Regierung für alle, die die deutsche Staatsbürgerschaft erwerben möchten.</p>
+                    <p data-i18n="welcome.about_modes">Nutzen Sie den Lernmodus zum Üben mit Übersetzung, oder den Prüfungsmodus zur Simulation (60 Min, ohne Übersetzung).</p>
+                </div>
 
-                <div class="modes">
-                    <div class="mode-card" data-mode="study">
-                        <h3>Lernmodus</h3>
-                        <p>Alle 310 Fragen frei durchblättern. Klicke auf ein Wort, um die portugiesische Übersetzung anzuzeigen. Übersetzung der ganzen Frage verfügbar.</p>
-                        <button class="btn-primary" id="start-study">Starten</button>
+                <div class="welcome-choice-grid">
+                    <div class="welcome-state">
+                        <h3 data-i18n="welcome.choose_state_title">Wähle dein Bundesland</h3>
+                        <p class="welcome-state-hint" data-i18n="welcome.choose_state_hint">Klicke auf dein Bundesland auf der Karte. Die landesspezifischen Fragen passen sich an deine Auswahl an.</p>
+                        <div id="einb-state-map" class="einb-state-map" role="group" aria-label="Bundesländer-Karte"></div>
+                        <div id="einb-state-caption" class="einb-state-caption" aria-live="polite"></div>
                     </div>
-                    <div class="mode-card" data-mode="exam">
-                        <h3>Prüfungsmodus</h3>
-                        <p>Echte Prüfungssimulation: 33 zufällige Fragen (30 allgemein + 3 Bayern), 60 Minuten Zeit, nur auf Deutsch. Bestanden ab 17 richtigen Antworten.</p>
-                        <button class="btn-primary" id="start-exam">Prüfung starten</button>
+
+                    <div class="welcome-lang">
+                        <h3 data-i18n="welcome.choose_lang_title">Welche Hilfssprache möchtest du?</h3>
+                        <p class="welcome-lang-hint" data-i18n="welcome.choose_lang_hint">Die Fragen bleiben immer auf Deutsch. Diese Auswahl steuert die Übersetzungen. Du kannst sie jederzeit oben rechts ändern.</p>
+                        <div id="einb-welcome-lang" class="einb-welcome-lang"></div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="screen-home" class="hidden">
+            <div class="home-layout">
+                <div class="home-main">
+                    <div class="card aptitude-card" id="aptitude-card" data-level="none">
+                        <div class="aptitude-header">
+                            <h2 id="aptitude-title" data-i18n="home.aptitude_title">📊 Lernfortschritt</h2>
+                            <div class="aptitude-pct" id="aptitude-pct">0%</div>
+                        </div>
+                        <div class="aptitude-bar">
+                            <div class="aptitude-bar-fill" id="aptitude-bar-fill" data-level="none" style="width: 0%"></div>
+                        </div>
+                        <p class="aptitude-message" id="aptitude-message"></p>
+                        <div class="aptitude-breakdown" id="aptitude-breakdown"></div>
+                    </div>
+
+                    <div class="card">
+                        <h2 data-i18n="home.welcome_title">Willkommen!</h2>
+                        <p class="subtitle" data-i18n="home.subtitle">Übung für den deutschen Einbürgerungstest – Bundesland Bayern.</p>
+
+                        <div class="modes">
+                            <div class="mode-card" data-mode="study">
+                                <h3 data-i18n="modes.study">Lernmodus</h3>
+                                <p data-i18n="home.mode_study_body">Alle 310 Fragen frei durchblättern. Klicke auf ein Wort, um die Übersetzung anzuzeigen.</p>
+                                <button class="btn-primary" id="start-study" data-i18n="home.mode_study_start">Starten</button>
+                            </div>
+                            <div class="mode-card" data-mode="exam">
+                                <h3 data-i18n="modes.exam">Prüfungsmodus</h3>
+                                <p data-i18n="home.mode_exam_body">Echte Prüfungssimulation: 33 zufällige Fragen (30 allgemein + 3 Bayern), 60 Minuten Zeit, nur auf Deutsch. Bestanden ab 17 richtigen Antworten.</p>
+                                <button class="btn-primary" id="start-exam" data-i18n="home.mode_exam_start">Prüfung starten</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card favorites-card hidden" id="favorites-card">
+                        <div class="favorites-header">
+                            <h2><span data-i18n="home.favorites_title">⭐ Meine Favoriten</span> <span class="favorites-count" id="favorites-count">0</span></h2>
+                            <button class="btn-secondary" id="btn-clear-favorites" data-i18n="home.favorites_clear">Alle löschen</button>
+                        </div>
+                        <p class="subtitle" data-i18n="home.favorites_subtitle">Klicke auf eine Karte, um die Frage erneut zu sehen.</p>
+                        <div class="favorites-actions">
+                            <button class="btn-primary btn-study-favorites" id="btn-study-favorites" data-i18n="home.favorites_study">📌 Nur Favoriten lernen</button>
+                        </div>
+                        <div class="favorites-grid" id="favorites-grid"></div>
+                    </div>
+                </div>
+
+                <aside class="home-sidebar">
+                    <div class="glossary home-glossary" id="home-glossary">
+                        <h3><span data-i18n="home.glossary_title">📖 Wortschatz</span> <span class="glossary-count" id="home-glossary-count">0</span></h3>
+                        <p class="hint" data-i18n="home.glossary_hint">Wörter, die du im Lernmodus anklickst, werden hier gespeichert – auch nach dem Neuladen.</p>
+                        <ul id="home-glossary-list"></ul>
+                        <button id="btn-clear-home-glossary" class="btn-secondary hidden" data-i18n="home.glossary_clear">Alle löschen</button>
+                    </div>
+                </aside>
             </div>
         </section>
 
         <section id="screen-quiz" class="hidden">
             <div class="quiz-toolbar">
                 <div class="left">
-                    <button id="btn-back">← Zurück</button>
+                    <button id="btn-back" data-i18n="quiz.back">← Zurück</button>
                     <span id="progress">Frage 1 / 33</span>
                 </div>
                 <div class="right">
                     <span id="timer" class="hidden">⏱ 60:00</span>
-                    <button id="btn-translate" class="hidden">Frage übersetzen</button>
+                    <button id="btn-translate" class="hidden" data-i18n="quiz.translate">Frage übersetzen</button>
                 </div>
             </div>
 
             <div class="quiz-layout">
                 <div class="quiz-main">
                     <div class="card question-card">
-                        <div class="question-number" id="q-num">Frage 1</div>
+                        <div class="question-header">
+                            <div class="question-number" id="q-num">Frage 1</div>
+                            <button id="btn-favorite" class="btn-favorite" data-i18n-attr="title,quiz.fav_save;aria-label,quiz.fav_save">☆</button>
+                        </div>
                         <div class="question-text" id="q-text"></div>
                         <div class="question-translation hidden" id="q-translation"></div>
                         <ul class="options" id="q-options"></ul>
@@ -59,31 +134,31 @@
                     </div>
 
                     <div class="quiz-nav">
-                        <button id="btn-prev">← Vorherige</button>
-                        <button id="btn-next" class="btn-primary">Nächste →</button>
-                        <button id="btn-finish" class="btn-primary hidden">Prüfung abgeben</button>
+                        <button id="btn-prev" data-i18n="quiz.prev">← Vorherige</button>
+                        <button id="btn-next" class="btn-primary" data-i18n="quiz.next">Nächste →</button>
+                        <button id="btn-finish" class="btn-primary hidden" data-i18n="quiz.finish">Prüfung abgeben</button>
                     </div>
                 </div>
 
                 <aside id="glossary-panel" class="glossary">
-                    <h3>📖 Wortschatz</h3>
-                    <p class="hint">Klicke auf ein Wort, um es hier zu speichern.</p>
+                    <h3 data-i18n="home.glossary_title">📖 Wortschatz</h3>
+                    <p class="hint" data-i18n="quiz.glossary_hint">Klicke auf ein Wort, um es hier zu speichern.</p>
                     <ul id="glossary-list"></ul>
-                    <button id="btn-clear-glossary" class="btn-secondary hidden">Liste leeren</button>
+                    <button id="btn-clear-glossary" class="btn-secondary hidden" data-i18n="quiz.glossary_clear">Liste leeren</button>
                 </aside>
             </div>
         </section>
 
         <section id="screen-result" class="hidden">
             <div class="card result-card">
-                <h2>Ergebnis</h2>
+                <h2 data-i18n="result.title">Ergebnis</h2>
                 <div class="score-display">
                     <div class="score-number"><span id="score-correct">0</span> / <span id="score-total">33</span></div>
                     <div id="score-status" class="score-status"></div>
                 </div>
                 <div class="result-actions">
-                    <button id="btn-review" class="btn-secondary">Antworten überprüfen</button>
-                    <button id="btn-restart" class="btn-primary">Neue Prüfung</button>
+                    <button id="btn-review" class="btn-secondary" data-i18n="result.review">Antworten überprüfen</button>
+                    <button id="btn-restart" class="btn-primary" data-i18n="result.restart">Neue Prüfung</button>
                 </div>
             </div>
         </section>
@@ -91,6 +166,20 @@
 
     <div id="tooltip" class="tooltip hidden"></div>
 
-    <script src="app.js"></script>
+    <footer class="einb-footer">
+        <div class="einb-footer-inner">
+            <span class="einb-footer-brand">Einbürgerungstest <span class="einb-footer-land" id="einb-footer-land">Bayern</span></span>
+            <span class="einb-footer-sep">·</span>
+            <span><span data-i18n="footer.support_label">Hilfe / Support</span>: <button type="button" class="einb-footer-link" data-einb-contact data-i18n="contact.button">Contato</button></span>
+            <span class="einb-footer-sep">·</span>
+            <button id="einb-footer-tour" class="einb-footer-link" type="button" data-i18n="footer.tour_again">Tour erneut starten</button>
+        </div>
+    </footer>
+
+    <script src="i18n.js?v=20260526"></script>
+    <script src="states-map.js?v=20260526"></script>
+    <script src="auth.js?v=20260526"></script>
+    <script src="tour.js?v=20260526"></script>
+    <script src="app.js?v=20260526"></script>
 </body>
 </html>

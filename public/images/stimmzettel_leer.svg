@@ -1,0 +1,28 @@
+<svg width="220" height="300" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="220" height="300" fill="white" stroke="#888" stroke-width="1.5"/>
+  <text x="110" y="22" text-anchor="middle" font-size="13" font-weight="bold">Stimmzettel</text>
+  <line x1="0" y1="28" x2="220" y2="28" stroke="#888" stroke-width="1"/>
+
+  <text x="12" y="48" font-size="10" font-weight="bold" fill="#003399">Erststimme</text>
+  <text x="12" y="62" font-size="8.5" fill="#333">(Kandidat/in)</text>
+  <rect x="12" y="70" width="196" height="28" rx="2" fill="none" stroke="#333" stroke-width="1.2"/>
+  <text x="50" y="89" font-size="9" fill="#333">Kandidat A</text>
+  <rect x="16" y="74" width="22" height="20" fill="none" stroke="#333" stroke-width="1.2"/>
+
+  <rect x="12" y="102" width="196" height="28" rx="2" fill="none" stroke="#aaa" stroke-width="1"/>
+  <text x="50" y="121" font-size="9" fill="#333">Kandidat B</text>
+  <rect x="16" y="106" width="22" height="20" fill="none" stroke="#aaa" stroke-width="1"/>
+
+  <line x1="0" y1="138" x2="220" y2="138" stroke="#888" stroke-width="1"/>
+  <text x="12" y="155" font-size="10" font-weight="bold" fill="#003399">Zweitstimme</text>
+  <text x="12" y="169" font-size="8.5" fill="#333">(Partei)</text>
+  <rect x="12" y="177" width="196" height="28" rx="2" fill="none" stroke="#333" stroke-width="1.2"/>
+  <text x="50" y="196" font-size="9" fill="#333">Partei X</text>
+  <rect x="16" y="181" width="22" height="20" fill="none" stroke="#333" stroke-width="1.2"/>
+
+  <rect x="12" y="209" width="196" height="28" rx="2" fill="none" stroke="#aaa" stroke-width="1"/>
+  <text x="50" y="228" font-size="9" fill="#333">Partei Y</text>
+  <rect x="16" y="213" width="22" height="20" fill="none" stroke="#aaa" stroke-width="1"/>
+
+  <text x="110" y="280" text-anchor="middle" font-size="8" fill="#c00" font-weight="bold">✗ Ungültig – keine Stimme</text>
+</svg>
